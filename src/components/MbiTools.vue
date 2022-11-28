@@ -30,10 +30,6 @@ import axios from 'axios'
 
 export default {
   name: 'MbiTools',
-  devServer: {
-    // This will forward any request that does not match a static file to localhost:3000
-    proxy: 'http://localhost:8080'
-  },
   data() {
     return {
       mbi: '',
