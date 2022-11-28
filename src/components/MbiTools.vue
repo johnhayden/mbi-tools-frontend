@@ -60,11 +60,8 @@ export default {
     verifyMBI: function () {
       axios.post(process.env.VUE_APP_MBI_API_URL + `/verify`, {mbi: this.mbiTest})
           .then(response => {
-            // JSON responses are automatically parsed.
-            console.log(response.data.valid);
             this.mbiVerifyResult = response.data;
             this.mbiVerifyResult.class = this.mbiVerifyResult.valid ? 'is-valid' : 'is-invalid';
-            console.log(this.mbiVerifyResult);
           })
           .catch(e => {
             console.error(e);
