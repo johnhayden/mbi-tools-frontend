@@ -44,10 +44,7 @@ export default {
   },
   methods: {
     generateMBI: function () {
-
-      const apiUrl = "http://localhost:8080";
-
-      axios.get(apiUrl + `/generate`)
+      axios.get(process.env.VUE_APP_MBI_API_URL + `/generate`)
           .then(response => {
             // JSON responses are automatically parsed.
             this.mbi = response.data.result
@@ -65,10 +62,7 @@ export default {
     },
 
     verifyMBI: function () {
-
-      const apiUrl = "http://localhost:8080";
-
-      axios.post(apiUrl + `/verify`, {mbi: this.mbiTest})
+      axios.post(process.env.VUE_APP_MBI_API_URL + `/verify`, {mbi: this.mbiTest})
           .then(response => {
             // JSON responses are automatically parsed.
             console.log(response.data.valid);
